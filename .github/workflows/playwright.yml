@@ -2,11 +2,22 @@ name: Simple Math CI
 
 on:
   workflow_dispatch:
+   inputs:
+      test_1:
+        description: "The name to say hello to"
+        required: true
+        default: "1"
+      test_2:
+        description: "The name to say hello to"
+        required: true
+        default: "1"
 
 jobs:
   say-hello:
     runs-on: ubuntu-latest
-
+   
     steps:
       - name: Step 1 - Say hello
-        run: echo "Hello GitHub Actions",
+        run: 
+          result=$(($test_1 + $test_2))
+          echo "Result: $result"
