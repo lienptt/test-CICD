@@ -22,7 +22,8 @@ env:
 jobs:
   say-hello:
     runs-on: ubuntu-latest
-   
+    outputs:
+      result: ${{ steps.step1.outputs.result }}
     steps:
       - name: Step 1 - Say hello
       env: 
@@ -39,7 +40,7 @@ jobs:
       - name: Step 1 - Say hello
       env: 
         test_1: ${{ env.test_1 || inputs.test_1 }}
-        test_2: ${{ env.test_2 || inputs.test_2 }}
+        
         run: 
-          result=$(($test_1 + $test_2))
+          result=$(($test_1 + ${{ needs.say-hello.outputs.result }}))
           echo "Result: $result"
