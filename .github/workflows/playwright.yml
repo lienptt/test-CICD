@@ -12,7 +12,7 @@ on:
         required: true
         default: "1"
       push:
-        branch: 
+        branches: 
          - main
 
 jobs:
