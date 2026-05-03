@@ -15,6 +15,10 @@ on:
         branches: 
          - main
 
+env: 
+  test_1: ${{ inputs.test_1 }}
+  test_2: "10"
+
 jobs:
   say-hello:
     runs-on: ubuntu-latest
