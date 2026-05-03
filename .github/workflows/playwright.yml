@@ -11,6 +11,9 @@ on:
         description: "The name to say hello to"
         required: true
         default: "1"
+      push:
+        branch: 
+         - main
 
 jobs:
   say-hello:
